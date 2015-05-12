@@ -52,19 +52,19 @@ function csr_parse($data) {
     switch ($key) {
       case 'C':
       echo htmlspecialchars($value);
-      echo ' <img src="'.htmlspecialchars($current_folder) . 'img/blank.gif" class="flag flag-';
+      echo ' <img src="',htmlspecialchars($current_folder) , 'img/blank.gif" class="flag flag-';
       echo strtolower(htmlspecialchars($value)); 
       echo '" alt="" />';
       break;
       case 'DC':
       foreach ($value as $key => $value) {
-        echo htmlspecialchars($value) . ".";
+        echo htmlspecialchars($value) , ".";
       }
       break;
       default:
       if (is_array($value)) {
         foreach ($value as $key => $value) {
-          echo htmlspecialchars($value) . " ";
+          echo htmlspecialchars($value) , " ";
         }
       } else {
         echo htmlspecialchars($value);
@@ -98,9 +98,9 @@ function cert_parse($data) {
   if (is_array($data["warning"]) && count($data["warning"]) >= 1) {
     $data["warning"] = array_unique($data["warning"]);
     if (count($data["warning"]) == 1) {
-      echo "<h3>" . count($data["warning"]) . " warning!</h3>";
+      echo "<h3>" , count($data["warning"]) , " warning!</h3>";
     } else {
-      echo "<h3>" . count($data["warning"]) . " warnings!</h3>";
+      echo "<h3>" , count($data["warning"]) , " warnings!</h3>";
     }
     foreach ($data["warning"] as $key => $value) {
       echo "<div class='alert alert-danger' role='alert'>";
@@ -222,19 +222,19 @@ function cert_parse($data) {
       switch ($key) {
         case 'C':
         echo htmlspecialchars($value);
-        echo ' <img src="'.htmlspecialchars($current_folder) . 'img/blank.gif" class="flag flag-';
+        echo ' <img src="',htmlspecialchars($current_folder) , 'img/blank.gif" class="flag flag-';
         echo strtolower(htmlspecialchars($value)); 
         echo '" alt="" />';
         break;
         case 'DC':
         foreach ($value as $key => $value) {
-          echo htmlspecialchars($value) . ".";
+          echo htmlspecialchars($value) , ".";
         }
         break;
         default:
         if (is_array($value)) {
           foreach ($value as $key => $value) {
-            echo htmlspecialchars($value) . " ";
+            echo htmlspecialchars($value) , " ";
           }
         } else {
           echo htmlspecialchars($value);
@@ -318,19 +318,19 @@ function cert_parse($data) {
       switch ($key) {
         case 'C':
         echo htmlspecialchars($value);
-        echo ' <img src="'.htmlspecialchars($current_folder) . 'img/blank.gif" class="flag flag-';
+        echo ' <img src="',htmlspecialchars($current_folder) , 'img/blank.gif" class="flag flag-';
         echo strtolower(htmlspecialchars($value)); 
         echo '" alt="" />';
         break;
         case 'DC':
         foreach ($value as $key => $value) {
-          echo htmlspecialchars($value) . ".";
+          echo htmlspecialchars($value) , ".";
         }
         break;
         default:
         if (is_array($value)) {
           foreach ($value as $key => $value) {
-            echo htmlspecialchars($value) . " ";
+            echo htmlspecialchars($value) , " ";
           }
         } else {
           echo htmlspecialchars($value);
@@ -386,19 +386,19 @@ function cert_parse($data) {
       if ($value) {
         if ($value["status"] == "ok") {
           echo "<span class='text-success glyphicon glyphicon-ok-sign'></span>";
-          echo "<span class='text-success'> - Not on CRL: " . htmlspecialchars($value["crl_uri"]) . "</span><br>";
-          echo "Last update: " . htmlspecialchars($value['crl_last_update']) . "<br>\n";
-          echo "Next update: " . htmlspecialchars($value['crl_next_update']) . "<br>\n";
+          echo "<span class='text-success'> - Not on CRL: " , htmlspecialchars($value["crl_uri"]) , "</span><br>";
+          echo "Last update: " , htmlspecialchars($value['crl_last_update']) , "<br>\n";
+          echo "Next update: " , htmlspecialchars($value['crl_next_update']) , "<br>\n";
         } elseif ($value["status"] == "revoked") {
           echo "<span class='text-danger glyphicon glyphicon-exclamation-sign'></span>";
-          echo "<span class='text-danger'> - Revoked on CRL: " . htmlspecialchars($value["crl_uri"]) . "</span><br>\n";
-          echo "<span class='text-danger'>Revocation date: " . htmlspecialchars($value["revoked_on"]) . "</span><br>\n";
-          echo "<br>Last update: " . htmlspecialchars($value['crl_last_update']) . "<br>\n";
-          echo "Next update: " . htmlspecialchars($value['crl_next_update']) . "<br>\n";
+          echo "<span class='text-danger'> - Revoked on CRL: " , htmlspecialchars($value["crl_uri"]) , "</span><br>\n";
+          echo "<span class='text-danger'>Revocation date: " , htmlspecialchars($value["revoked_on"]) , "</span><br>\n";
+          echo "<br>Last update: " , htmlspecialchars($value['crl_last_update']) , "<br>\n";
+          echo "Next update: " , htmlspecialchars($value['crl_next_update']) , "<br>\n";
         } else {
           echo "<span class='text-danger glyphicon glyphicon-exclamation-sign'></span>";
-          echo "<span class='text-danger'> - CRL invalid: (" . htmlspecialchars($value["crl_uri"]) . ")</span><br>";
-          echo "<pre> " . htmlspecialchars($value["error"]) . "</pre>";
+          echo "<span class='text-danger'> - CRL invalid: (" , htmlspecialchars($value["crl_uri"]) , ")</span><br>";
+          echo "<pre> " , htmlspecialchars($value["error"]) , "</pre>";
         }
       }
       if (count($data['ocsp']) > 1) {
@@ -422,22 +422,22 @@ function cert_parse($data) {
           echo '<span class="text-success"> - OK: ';
           echo htmlspecialchars($value['ocsp_uri']);
           echo "</span><br>";
-          echo "Last update: " . htmlspecialchars($value["this_update"]) . "<br>\n";
-          echo "Next update: " . htmlspecialchars($value["next_update"]) . "<br>\n";
+          echo "Last update: " , htmlspecialchars($value["this_update"]) , "<br>\n";
+          echo "Next update: " , htmlspecialchars($value["next_update"]) , "<br>\n";
         } else if ( $value["status"] == "revoked") {
           echo '<span class="text-danger glyphicon glyphicon-remove-sign"></span>';
           echo '<span class="text-danger"> - REVOKED: ';
           echo htmlspecialchars($value['ocsp_uri']);
           echo "</span><br>";
-          echo "<span class='text-danger'>Revocation Time: " . htmlspecialchars($value["revocation_time"]) . "<br>\n";
-          echo "Revocation Reason: " . htmlspecialchars($value["reason"]). "</span><br>";
-          echo "<br>Last update: " . htmlspecialchars($value["this_update"]) . "<br>\n";
-          echo "Next update: " . htmlspecialchars($value["next_update"]) . "<br>\n";
+          echo "<span class='text-danger'>Revocation Time: " , htmlspecialchars($value["revocation_time"]) , "<br>\n";
+          echo "Revocation Reason: " , htmlspecialchars($value["reason"]), "</span><br>";
+          echo "<br>Last update: " , htmlspecialchars($value["this_update"]) , "<br>\n";
+          echo "Next update: " , htmlspecialchars($value["next_update"]) , "<br>\n";
         } else {
           echo '<span class="text-danger glyphicon glyphicon-question-sign"></span>';
           echo '<span class="text-danger"> - UNKNOWN: ';
-          echo " - " . htmlspecialchars($value['ocsp_uri']) . "</span><br>";
-          echo "<pre>" . htmlspecialchars($value["error"]) . "</pre>";
+          echo " - " , htmlspecialchars($value['ocsp_uri']) , "</span><br>";
+          echo "<pre>" , htmlspecialchars($value["error"]) , "</pre>";
         }
       }
       if (count($data['ocsp']) > 1) {
@@ -542,7 +542,7 @@ function cert_parse($data) {
             foreach ($data['cert_data']['extensions'] as $name=>$extension) {
 
               if ( !empty(str_replace(',', " ", "$extension"))) {
-                echo "<strong>" . htmlspecialchars("$name") . "</strong>";
+                echo "<strong>" , htmlspecialchars("$name") , "</strong>";
                 echo "<pre>";
                 echo htmlspecialchars($extension);
                 echo "</pre>";

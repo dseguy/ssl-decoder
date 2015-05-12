@@ -85,7 +85,7 @@ foreach (glob("functions/*.php") as $filename) {
           if (count($value['warning']) >= 1) {
             $warntxt = " <sup>(<strong>".htmlspecialchars(count($value['warning']))."</strong>)</sup>";
           }
-          echo "<li><a href='#cert".(string)$key."'><strong>".$key."</strong> : ". htmlspecialchars($value["cert_data"]["subject"]["CN"]) . $warntxt . "</a></li>";
+          echo "<li><a href='#cert",(string)$key,"'><strong>",$key,"</strong> : ", htmlspecialchars($value["cert_data"]["subject"]["CN"]) , $warntxt , "</a></li>";
         }
         ?>
         <li><a href="<?php echo(htmlspecialchars($current_folder)); ?>">Try another website</a></li>
@@ -129,7 +129,7 @@ foreach (glob("functions/*.php") as $filename) {
     if ( !empty($host) ) {
       echo "<p><strong>This tool does not make conclusions. Please check the data and define the validity yourself!</strong></p>";
       if ( !empty($data["error"]) ) {
-        echo "<span class='text-danger'>" . htmlspecialchars($data["error"][0]) . "</span>";
+        echo "<span class='text-danger'>" , htmlspecialchars($data["error"][0]) , "</span>";
         echo "<hr>";
         $write_cache = 0;
       } else {
@@ -141,20 +141,20 @@ foreach (glob("functions/*.php") as $filename) {
 
         if ($write_cache == 1) {
           echo "This result is saved at most 60 days on <a href=\"";
-          echo(htmlspecialchars($current_folder) . $cache_filename); 
+          echo htmlspecialchars($current_folder) , $cache_filename ; 
           echo "\">the following URL</a>. Do note that this might be deleted earlier if space runs out.";
         }
 
         // connection data
         echo "<div class='content'><section id='conndata'>";
-        echo "<header><h2>Connection Data for " . htmlspecialchars($host) . "</h2></header>";
+        echo "<header><h2>Connection Data for " , htmlspecialchars($host) , "</h2></header>";
         ssl_conn_metadata($data["data"]["connection"]);
         echo "</section></div>";
 
         // certificates
         foreach ($data["data"]["chain"] as $key => $value) {
-          echo "<div class='content'><section id='cert" . $key . "'>";
-          echo "<header><h2>Certificate for '". htmlspecialchars($value["cert_data"]["subject"]["CN"]) ."'</h2></header>";
+          echo "<div class='content'><section id='cert" , $key , "'>";
+          echo "<header><h2>Certificate for '", htmlspecialchars($value["cert_data"]["subject"]["CN"]) ,"'</h2></header>";
           cert_parse($value);
           echo "</section></div>";
         }
@@ -166,7 +166,7 @@ foreach (glob("functions/*.php") as $filename) {
       $cache_filename_json = (string) "results/saved.csr." . $epoch . "." . $random_bla . ".json";
       if ($write_cache == 1) {
         echo "This result is saved at most 60 days on <a href=\"";
-        echo(htmlspecialchars($current_folder) . $cache_filename); 
+        echo htmlspecialchars($current_folder) , $cache_filename ; 
         echo "\">the following URL</a>. Do note that this might be deleted earlier if space runs out.";
       }
 

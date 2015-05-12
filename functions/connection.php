@@ -179,9 +179,9 @@ function ssl_conn_metadata($data) {
   if (is_array($data["warning"]) && count($data["warning"]) >= 1) {
     $data["warning"] = array_unique($data["warning"]);
     if (count($data["warning"]) == 1) {
-      echo "<h3>" . count($data["warning"]) . " warning!</h3>";
+      echo "<h3>" , count($data["warning"]) , " warning!</h3>";
     } else {
-      echo "<h3>" . count($data["warning"]) . " warnings!</h3>";
+      echo "<h3>" , count($data["warning"]) , " warnings!</h3>";
     }
     foreach ($data["warning"] as $key => $value) {
       echo "<div class='alert alert-danger' role='alert'>";
@@ -252,7 +252,7 @@ function ssl_conn_metadata($data) {
       } else if ( $key == "sslv2") {
         echo '<p><span class="text-danger glyphicon glyphicon-ok"></span> - <span class="text-danger">SSLv2 (Supported)</span></p>';
       } else {
-        echo '<p><span class="glyphicon glyphicon-ok"></span> - <span>'.$key.' (Supported)</span></p>';
+        echo '<p><span class="glyphicon glyphicon-ok"></span> - <span>',$key,' (Supported)</span></p>';
       }
     } else {
       if ( $key == "tlsv1.2") {
@@ -266,7 +266,7 @@ function ssl_conn_metadata($data) {
       } else if ( $key == "sslv2") {
         echo '<p><span class="text-success glyphicon glyphicon-remove"></span> - <span class="text-success">SSLv2 (Not supported)</span></p>';
       } else {
-        echo '<p><span class="glyphicon glyphicon-remove"></span> - <span>'.$key.'(Not supported)</span></p>';
+        echo '<p><span class="glyphicon glyphicon-remove"></span> - <span>',$key,'(Not supported)</span></p>';
       }
     }
   }
@@ -350,7 +350,7 @@ function ssl_conn_metadata($data) {
     echo "<td>Ciphersuite Used</td>";
     echo "<td>";
     echo htmlspecialchars($data['used_ciphersuite']['name']);
-    echo " (".htmlspecialchars($data['used_ciphersuite']['bits'])." bits)";
+    echo " (",htmlspecialchars($data['used_ciphersuite']['bits'])," bits)";
     echo "</td>";
     echo "</tr>";
   }
@@ -415,7 +415,7 @@ function ssl_conn_metadata($data) {
       echo "<table class='table'>";
       foreach ($data["ocsp_stapling"] as $key => $value) {
         if ($key != "working") {
-          echo "<tr><td>" . htmlspecialchars($key) . "</td><td>" . htmlspecialchars($value) . "</td></tr>";
+          echo "<tr><td>" , htmlspecialchars($key) , "</td><td>" , htmlspecialchars($value) , "</td></tr>";
         }
       } 
       echo "</table>";

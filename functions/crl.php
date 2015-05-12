@@ -44,7 +44,7 @@ function crl_verify($raw_cert_data, $verbose=true) {
                 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
                 if(curl_exec($ch) === false)
                 {
-                    echo '<pre>Curl error: ' . htmlspecialchars(curl_error($ch)) ."</pre>";
+                    echo '<pre>Curl error: ' , htmlspecialchars(curl_error($ch)) ,"</pre>";
                 }
                 curl_close($ch);
                 if(stat("/tmp/" . $random_blurp .  "." . escapeshellcmd($key) . ".crl")['size'] < 10 ) {
